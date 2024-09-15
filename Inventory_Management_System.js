@@ -27,3 +27,15 @@ let inventory = [ {
     "lowStockLevel": 10
 }
 ]
+
+// Create a Function to Display Product Details
+
+function displayProductDetails(inventory) {
+    let IsItInStock = inventory.quantity > inventory.lowStockLevel ? "In Stock" : "Low Stock";
+
+    console.log(`Name: ${inventory.name}`);
+    console.log(`Price: $${inventory.price}`);
+    console.log(`Quantity: ${inventory.quantity}`);
+    console.log(`In Stock: ${IsItInStock}`);
+}
+
