@@ -38,6 +38,9 @@ function displayProductDetails(inventory) {
     console.log(`Quantity: ${inventory.quantity}`);
     console.log(`In Stock: ${IsItInStock}`);
 }
+inventory.forEach(product => {
+    displayProductDetails(product);
+});
 
 //Create displayProductDetails function
 
@@ -54,14 +57,16 @@ function updateStock(inventory, unitsSold) {
         return `${inventory.name} is in stock. The current quantity is ${inventory.quantity}`;
     }
 }
+updateStock(inventory[0], 5);
 
 // Create a Function to Check Low Stock Products
 
 function checkLowStock(inventory) {
-    console.log("Products with low stock:");
+    console.log("Products with low stock:")
     inventory.forEach(inventory => {
         if (inventory.quantity <= inventory.lowStockLevel) {
             return inventory.name;
         }
     });
 }
+checkLowStock(inventory);
