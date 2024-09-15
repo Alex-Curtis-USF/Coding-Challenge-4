@@ -45,12 +45,23 @@ function updateStock(inventory, unitsSold) {
     inventory.quantity -= unitsSold;
     inventory.quantity = Math.max(inventory.quantity, 0);
     if (inventory.quantity === 0) {
-        return `${product.name} is out of stock`
+        return `${inventory.name} is out of stock`
     } 
     else if (inventory.quantity <= inventory.lowStockLevel) {
-        return `${product.name} is low in stock. The current quantity is ${product.quantity}`
+        return `${inventory.name} is low in stock. The current quantity is ${inventory.quantity}`
     }
     else {
-        return `${product.name} is in stock. The current quantity is ${product.quantity}`;
+        return `${inventory.name} is in stock. The current quantity is ${inventory.quantity}`;
     }
+}
+
+// Create a Function to Check Low Stock Products
+
+function checkLowStock(inventory) {
+    console.log("Products with low stock:");
+    inventory.forEach(inventory => {
+        if (inventory.quantity <= inventory.lowStockLevel) {
+            return inventory.name;
+        }
+    });
 }
