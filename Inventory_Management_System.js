@@ -74,7 +74,20 @@ checkLowStock(inventory);
 // Create calculateInventoryValue function
 
 function calculateInventoryValue(inventory) {
-    return inventory.reduce((total, product) => total + product.price * product.quantity, 0);
+    return inventory.reduce((total, inventory) => total + inventory.price * inventory.quantity, 0);
 }
 let totalValue = calculateInventoryValue(inventory);
 console.log(totalValue);
+
+// Create a Function to Process a Sale
+
+function processSale(inventoryName, unitsSold) {
+    let product = inventory.find(inventory => inventory.name)
+    if (product) {
+        return updateStock(product, unitsSold);
+    }
+    else {
+        return `Error: '${inventory.name}' is not found in the inventory`;
+    }
+}
+console.log(processSale('Notebook', 3));
