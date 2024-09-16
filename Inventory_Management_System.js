@@ -70,3 +70,11 @@ function checkLowStock(inventory) {
     });
 }
 checkLowStock(inventory);
+
+// Create calculateInventoryValue function
+
+function calculateInventoryValue(inventory) {
+    return inventory.reduce((total, product) => total + product.price * product.quantity, 0);
+}
+let totalValue = calculateInventoryValue(inventory);
+console.log(totalValue);
